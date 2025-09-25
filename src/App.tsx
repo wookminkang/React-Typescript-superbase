@@ -2,6 +2,7 @@
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import { Portfolios } from './pages/Portfolios'
 import { PostExample } from './pages/post/PostExample'
+import { CarrotComparison } from './pages/post/details/CarrotComparison'
 import { ThemeProvider } from './components/ThemeProvider'
 import { AnimatePresence } from 'framer-motion'
 function AppRoutes() {
@@ -15,6 +16,8 @@ function AppRoutes() {
         <Route index element={<Portfolios />} />
         {/* 직접 URL 접근 시엔 풀페이지 상세 */}
         <Route path="post/:id" element={<Portfolios />} />
+        {/* 비교 페이지 */}
+        <Route path="comparison" element={<CarrotComparison />} />
       </Routes>
 
       

@@ -87,7 +87,7 @@ function Portfolios() {
               <div className="text-white text-[15px] font-[400]">😎 안녕하세요, 프론트엔드 개발자 토미입니다.</div>
               <div className="text-white text-[15px] font-[400]">💎 늘 새로운 것을 탐구하고 분석하고,</div>
               <div className="text-white text-[15px] font-[400]">🔫 일상 속 익숙해진 불편함을 해결하는 데 집중하면서</div>
-              <div className="text-white text-[15px] font-[400]">📮 UI/UX 작업 1개 +α를 업로드하고 있어요.</div>              
+              <div className="text-white text-[15px] font-[400]">📮 내 맘대로 작업물을 업로드하고 있어요.</div>              
             </div>
           </div>
 
