@@ -3,52 +3,8 @@ import { AppSubHeader } from "@/components/common"
 import { motion, AnimatePresence } from "framer-motion"
 import { useNavigate, useParams } from "react-router-dom"
 import { PostExample } from "./post/PostExample"
+import { items } from "@/api/portfolio"
 
-
-
-type Item = {
-  id: number
-  title: string
-  date: string
-  workTime: string
-  content: string
-  type: string
-}
-
-const items: Item[] = [
-  { 
-    id: 1, 
-    title: "첫 번째 작업물 - GS Barcoding 개선", 
-    date: "2025-09-02", 
-    workTime: "3일", 
-    content: "저는 평소 편의점이나 음식점에서 카카오페이를 자주 사용합니다. 결제를 진행하는 과정에서 직원분은 저의 핸드폰 화면을 보고 어디를 찍어야 할지 혼란스러워하시거나 헷갈려하는 모습을 보게 됩니다. 이런 경험을 개선해보고자 UI를 반대 방향으로 디자인하는 아이디어를 떠올렸고, 직접 구현해본 결과 꽤 괜찮은 사용자 경험을 만들 수 있었습니다. 단순한 시도가 아니라, 실제 사용 과정에서 느낀 불편함을 바탕으로 문제를 정의하고 이를 해결하는 방식을 디자인에 적용한 사례라고 할 수 있습니다.",
-    type: "barcode"
-  },
-  { 
-    id: 2, 
-    title: "두 번째 작업물 - 토스(계좌, 잔액 블러처리)", 
-    date: "2025-09-05", 
-    workTime: "1일", 
-    content: "토스앱을 초기부터 사용하면서 느낀 불편함은, 앱을 실행하자마자 계좌번호와 잔액이 그대로 노출된다는 점이었습니다. 개인 프라이버시 측면에서 노출이 되지 않는 것이 더 좋다고 생각했고, 이를 개선하기 위해 사용자가 선택 옵션에따라 노출 여부를 선택할 수 있도록 개선했습니다.",
-    type: "toss"
-  },
-  {
-    id: 3,
-    title: "세 번째 작업물 - 당근마켓 가격제안 개선",
-    date: "2025-09-08", 
-    workTime: "2일",
-    content: "판매자가 상품을 올릴 때 가격 제안을 받을 수  있도록 옵션 설정이 있습니다. 하지만 가격 제안을 받지 않도록 설정했음에도 구매자가 채팅을 통해 가격 제안을 보내는 경우가 많습니다. 이를 개선하기 위해 가격 제안 옵션이 꺼진 상태에서는 채팅방에 입장했을 때 가격 제안을 받을 수 없다는 메시지를 노출하도록 개선했습니다.",
-    type: "carrot"
-  },
-  {
-    id: 4,
-    title: "한국전력공사 앱 메인 개선",
-    date: "2025-09-11", 
-    workTime: "3일",
-    content: "헌국전력 앱을 사용하는 이유에 대한 생각을 해봤습니다. 저는 자취를 하기 때문에 매달 전기 요금이 얼마나 나가는지 궁금했고, 또한 전월과 당월요금을 비교하여, 절약하기 위해 메인 화면을 어떻게 바꾸면 좋을지 고민했습니다. 이를 해결하기 위해 가장 궁금한 부분 중 하나인 1일부터 현재까지 전기 요금을 비교하여 메인 화면에 노출하도록 개선했습니다.",
-    type: "korea"
-  }        
-]
 
 function Portfolios() {
   const { id } = useParams()
