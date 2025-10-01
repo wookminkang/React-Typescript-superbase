@@ -7,5 +7,5 @@ import { Carrot } from './Carrot'
 import { CarrotBefore } from './CarrotBefore'
 import { CarrotComparison } from './CarrotComparison'
 import { Korea } from './Korea'
-
-export { BarcodeItem, TossApp, Carrot, CarrotBefore, CarrotComparison, Korea }
+import { Challenge } from './Challenge'
+export { BarcodeItem, TossApp, Carrot, CarrotBefore, CarrotComparison, Korea, Challenge }

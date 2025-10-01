@@ -5,9 +5,16 @@ import { useNavigate } from 'react-router-dom'
 
 function Carrot() {
   const navigate = useNavigate()
-  const [showToast, setShowToast] = useState(true)
-  const [message, setMessage] = useState('')
-  const [messages, setMessages] = useState([
+  const [isLoading, setIsLoading] = useState<boolean>(false)
+  const [showToast, setShowToast] = useState<boolean>(true)
+  const [message, setMessage] = useState<string>('')
+  const [messages, setMessages] = useState<{
+    id: number
+    text: string
+    isMe: boolean
+    time: string
+    isFiltered: boolean
+  }[]>([
     {
       id: 1,
       text: "안녕하세요. 관심 있어서 문의드려요.",
@@ -32,6 +39,14 @@ function Carrot() {
   useEffect(() => {
     scrollToBottom()
   }, [messages])
+
+
+  useEffect(() => {    
+    setTimeout(() => {
+      setIsLoading(true)
+    }, 1000)
+  }, [])
+
 
   const getCurrentTime = () => {
     const now = new Date()
@@ -141,13 +156,7 @@ function Carrot() {
             <p className="text-xs text-muted-foreground">보통 10분 이내 응답</p>
           </div>
         </div>
-        <div className="flex items-center gap-1">
-          <button 
-            className="px-3 py-1 text-xs bg-orange-500 text-white rounded-full hover:bg-orange-600"
-            onClick={() => navigate('/comparison')}
-          >
-            비교보기
-          </button>
+        <div className="flex items-center gap-1">          
           <button className="flex h-9 w-9 items-center justify-center rounded-full hover:bg-muted">
             <Phone className="h-5 w-5" />
           </button>
@@ -156,6 +165,8 @@ function Carrot() {
           </button>
         </div>
       </div>
+
+      
 
       {/* Product summary */}
       <section className="border-b px-4 py-3">
@@ -185,10 +196,22 @@ function Carrot() {
       </section>
 
       {/* Chat area */}
-      <main className="h-[calc(100vh-580px)] space-y-4 overflow-y-auto px-4 pb-20 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent">
+      <main className="relative h-[calc(100vh-890px)] space-y-4 overflow-y-auto px-4 pb-20 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent">
+
+      {isLoading && (
+        <div className="absolute zx-1000 right-0 bottom-[40px] right-[16px]">
+          <button 
+            className="px-4 py-2 text-xs bg-orange-500 text-white rounded-full hover:bg-orange-600"
+            onClick={() => navigate('/comparison')}
+          >
+            비교 보기
+          </button>
+        </div>
+      )}
+
         {/* Date divider */}
         <div className="relative my-4 text-center text-xs text-muted-foreground">
-          <span className="relative z-10 bg-background px-2">2025년 9월 16일</span>
+          <span className="relative z-1 bg-background px-2">2025년 9월 16일</span>
           <div className="absolute left-0 top-1/2 h-px w-full -translate-y-1/2 bg-border" />
         </div>
 

@@ -1,6 +1,6 @@
-import { useParams, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { BarcodeItem, TossApp, Carrot } from './details'
+import { BarcodeItem, TossApp, Carrot, Korea, Challenge } from './details'
 import { useState, useEffect } from 'react'
 
 type LISTS = {
@@ -55,10 +55,11 @@ export function PostExample({ id, lists }: Props) {
           </div>
 
           <div className="text-gray-300 my-[12px]">
-            {info?.type === "barcode" && <BarcodeItem number={'123456789'}/>}
+              {info?.type === "barcode" && <BarcodeItem number={'123456789'}/>}
               {info?.type === "toss" && <TossApp />}
               {info?.type === "carrot" && <Carrot />}
               {info?.type === "korea" && <Korea />}
+              {info?.type === "challenge" && <Challenge />}
           </div>
 
           <div className="flex justify-end">
